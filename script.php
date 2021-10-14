@@ -46,4 +46,4 @@ echo '<div class="container">';
 echo '<h1>FICHA DE INSCRIÇÃO</h1>';
 echo '<p> NOME: ' .$competidor->getNome(); '</p>';
 echo '<p> IDADE: ' .$competidor->getIdade(); '</p>';
-echo '<p> CATEGORIA: ' .$competidor->getCategoria(); '</p> </div></div></div>';
+echo '<p> CATEGORIA: ' .$competidor->getCategoria(); '</p> </div>';
