@@ -30,20 +30,31 @@ $idade = $_POST['idade'];
 $competidor->setNome($_POST['nome']);
 $competidor->setIdade($_POST['idade']);
 
-if ($idade >=6 && $idade <= 12){
-    $competidor->setCategoria('Infantil');
-    }elseif ($idade > 12 && $idade<= 18){
-        $competidor->setCategoria('Adolescente');
-    } elseif ($idade > 18 && $idade<= 60) { 
-        $competidor->setCategoria('Adulto');
-    } elseif ($idade > 60) {
-        $competidor->setCategoria('Idoso');
-    } else {
-        echo "IDADE INVÁLIDA";    
-};
+if (empty($nome)){
+    echo "<div class='alert alert-danger' role='alert'> O nome não pode ser vazio </div>";
+}elseif (empty($idade)) {
+    echo "<div class='alert alert-danger' role='alert'> Idade não pode ser vazio </div>";
+} else {
+    if ($idade >=6 && $idade <= 12){
+        $competidor->setCategoria('Infantil');
+        }elseif ($idade > 12 && $idade<= 18){
+            $competidor->setCategoria('Adolescente');
+        } elseif ($idade > 18 && $idade<= 60) { 
+            $competidor->setCategoria('Adulto');
+        } elseif ($idade > 60) {
+            $competidor->setCategoria('Idoso');
+        } else {
+            echo "IDADE INVÁLIDA";    
+    };
+    
+    echo '<div class="container">';
+    echo '<h1>FICHA DE INSCRIÇÃO</h1>';
+    echo '<p> NOME: ' .$competidor->getNome(); '</p>';
+    echo '<p> IDADE: ' .$competidor->getIdade(); '</p>';
+    echo '<p> CATEGORIA: ' .$competidor->getCategoria(); '</p> </div>';
+    
+}
 
-echo '<div class="container">';
-echo '<h1>FICHA DE INSCRIÇÃO</h1>';
-echo '<p> NOME: ' .$competidor->getNome(); '</p>';
-echo '<p> IDADE: ' .$competidor->getIdade(); '</p>';
-echo '<p> CATEGORIA: ' .$competidor->getCategoria(); '</p> </div>';
+
+
+
